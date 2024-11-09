@@ -3,6 +3,7 @@
     background-size: 50%;
     /*height: 200px;*/
     /*width: 1000px;*/
+    max-width: 1000px;
     background-repeat: no-repeat;
     background-color: rgb(255, 126, 0);
 }

@@ -9,97 +9,93 @@
 </head>
 <body>
 
-    <!-- <div class="alert alert-info">
-        <div class="d-none d-xl-block font-weight-bold">X-LARGE (XL)</div>
-        <div class="d-none d-lg-block d-xl-none font-weight-bold">LARGE (LG)</div>
-        <div class="d-none d-md-block d-lg-none font-weight-bold">MEDIUM (M)</div>
-        <div class="d-none d-sm-block d-md-none font-weight-bold">SMALL (SM)</div>
-        <div class="d-block d-sm-none alert font-weight-bold">X-SMALL (Defaut)</div>
-    </div>   -->
+<!-- <div class="alert alert-info">
+    <div class="d-none d-xl-block font-weight-bold">X-LARGE (XL)</div>
+    <div class="d-none d-lg-block d-xl-none font-weight-bold">LARGE (LG)</div>
+    <div class="d-none d-md-block d-lg-none font-weight-bold">MEDIUM (M)</div>
+    <div class="d-none d-sm-block d-md-none font-weight-bold">SMALL (SM)</div>
+    <div class="d-block d-sm-none alert font-weight-bold">X-SMALL (Defaut)</div>
+</div>   -->
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div class="container">
-            <a href="#" class="navbar-brand">PKasiewicz</a>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+        <a href="#" class="navbar-brand">PKasiewicz</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">About Me</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Projects</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="https://www.pkasiewicz.pl/" class="nav-link">Portfolio</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Content -->
-    <div class="container content rounded-4 my-3 col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
-        <div class="row justify-content-center">
-            <div class="text-center">
+<!-- Content -->
+<div class="container content rounded-4 my-3 col-xl-5 col-lg-6 col-md-8 col-sm-10 col-xs-12">
+    <div class="row justify-content-center">
+        <div class="text-center">
 
-                <div class="rounded home-truck banner container-fluid py-5 text-white text-center text-shadow">
-                    <a href="#" th:href="@{'/'}">
-                        <h1 href="#" class="display-5 fw-bold">Pallet Space Assistant</h1>
-                    </a>
+            <div class="rounded home-truck banner py-5 text-white text-center text-shadow">
+                <h1 class="display-5 fw-bold">Pallet Space Assistant</h1>
+            </div>
+
+
+            <form th:action="@{/calculate}" method="post">
+                <div class="mb-3">
+                    <label for="euro" class="col-form-label">Palety EURO:</label>
+                    <input id="euro" name="euro" placeholder="Wpisz ilość słupków palet EURO" type="number" min="0"
+                           max="33" class="form-control" required>
                 </div>
-
-
-                <form th:action="@{/calculate}" method="post">
-                    <div class="mb-3">
-                        <label for="euro" class="col-form-label">Palety EURO:</label>
-                        <input id="euro" name="euro" placeholder="Wpisz ilość słupków palet EURO" type="number" min="0"
-                               max="33" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="j7" class="col-3 col-form-label">Palety J7:</label>
-                        <input id="j7" name="j7" placeholder="Wpisz ilość słupków palet J7" type="number" min="0"
-                               max="11" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="hg5" class="col-3 col-form-label">Palety HG5:</label>
-                        <input id="hg5" name="hg5" placeholder="Wpisz ilość słupków palet HG5" type="number" min="0"
-                               max="20" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="gm6" class="col-3 col-form-label">Palety GM6:</label>
-                        <input id="gm6" name="gm6" placeholder="Wpisz ilość słupków palet GM6" type="number" min="0"
-                               max="20" class="form-control" required>
-                    </div>
-                    <button name="submit" type="submit" class="btn btn-primary mb-3">Wylicz</button>
-                </form>
-
-                <div class="col-6 offset-3 text-center alert-info" th:if="${leftSpaceForPallets != null}" th:object="${leftSpaceForPallets}">
-                    <p class="">Na aucie zmieści się jeszcze:</p>
-                    <p th:text="|${leftSpaceForPallets.get(0)} słupki/ów palet EURO|">10 palet EURO</p>
-                    <p th:text="|${leftSpaceForPallets.get(1)} słupki/ów palet J7|">10 palet J7</p>
-                    <p th:text="|${leftSpaceForPallets.get(2)} słupki/ów palet HG5|">10 palet HG5</p>
-                    <p th:text="|${leftSpaceForPallets.get(3)} słupki/ów palet GM6|">10 palet GM6</p>
+                <div class="mb-3">
+                    <label for="j7" class="col-3 col-form-label">Palety J7:</label>
+                    <input id="j7" name="j7" placeholder="Wpisz ilość słupków palet J7" type="number" min="0"
+                           max="11" class="form-control" required>
                 </div>
+                <div class="mb-3">
+                    <label for="hg5" class="col-3 col-form-label">Palety HG5:</label>
+                    <input id="hg5" name="hg5" placeholder="Wpisz ilość słupków palet HG5" type="number" min="0"
+                           max="20" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gm6" class="col-3 col-form-label">Palety GM6:</label>
+                    <input id="gm6" name="gm6" placeholder="Wpisz ilość słupków palet GM6" type="number" min="0"
+                           max="20" class="form-control" required>
+                </div>
+                <button name="submit" type="submit" class="btn btn-primary mb-3">Wylicz</button>
+            </form>
+
+            <div class="col-6 offset-3 text-center alert-info" th:if="${leftSpaceForPallets != null}"
+                 th:object="${leftSpaceForPallets}">
+                <p class="">Na aucie zmieści się jeszcze:</p>
+                <p th:text="|${leftSpaceForPallets.get(0)} słupki/ów palet EURO|">10 palet EURO</p>
+                <p th:text="|${leftSpaceForPallets.get(1)} słupki/ów palet J7|">10 palet J7</p>
+                <p th:text="|${leftSpaceForPallets.get(2)} słupki/ów palet HG5|">10 palet HG5</p>
+                <p th:text="|${leftSpaceForPallets.get(3)} słupki/ów palet GM6|">10 palet GM6</p>
             </div>
         </div>
     </div>
+</div>
 
 
-    <!-- Footer -->
-    
-    <footer class="text-center text-lg-start bg-dark text-white">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-            Copyright &copy; 2024 PKasiewicz
-        </div>
-        <!-- Copyright -->
-      </footer>
+<!-- Footer -->
 
-    <!-- Script -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+<footer class="text-center text-lg-start bg-dark text-white">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        Copyright &copy; 2024 PKasiewicz
+    </div>
+    <!-- Copyright -->
+</footer>
+
+<!-- Script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 </html>
