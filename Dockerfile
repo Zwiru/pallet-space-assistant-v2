@@ -5,6 +5,6 @@ COPY ./src ./src
 RUN mvn package
 
 FROM openjdk:21-slim-bookworm
-EXPOSE 8080
+EXPOSE 8082
 COPY --from=MAVEN_BUILD /target/psa-*.jar /app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
